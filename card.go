@@ -11,7 +11,7 @@ type Card struct {
 }
 
 type Deck interface {
-	Shuffle() []Card
+	Shuffle()
 }
 
 type Cards []Card
@@ -49,7 +49,7 @@ func New() []Card {
 	return deck
 }
 
-func (deck *Cards) Shuffle() []Card {
+func (deck *Cards) Shuffle() {
 	var card Card
 	l := len(*deck)
 	for i := 0; i < l-1; i++ {
@@ -58,5 +58,4 @@ func (deck *Cards) Shuffle() []Card {
 		(*deck)[i] = (*deck)[g]
 		(*deck)[g] = card
 	}
-	return *deck
 }
